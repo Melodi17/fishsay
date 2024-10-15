@@ -1,6 +1,8 @@
 ﻿# fishsay
 A standalone ascii fish generator for your terminal. Based on the original [cowsay](https://en.wikipedia.org/wiki/Cowsay) program for Windows.
 
+- Cute fishes
+- Easy to use
 - Supports color formatting
 - Supports piping and live updates
 
@@ -30,6 +32,7 @@ You can pipe live commands into fishsay to get live updates. You'll notice the f
 ```bash
 $ ping google.com | fishsay
 ```
+You can optionally disable this using the `--no-live` flag.
 
 ### Color formatting
 You can use color formatting in your text to make the fish say things in color.
@@ -38,6 +41,7 @@ $ echo %red%Some red text!%reset% | fishsay
 ```
 By trailing (not resetting the color) a color or style, it will be applied to the fish and then cleaned up after to prevent spilling over the rest of your terminal.
 For all supported colors and styles, see the [color formatting](https://github.com/Melodi17/fishsay/blob/master/FISHSAY_FORMATTING.md) page.
+Color formatting can be disabled using the `--no-color` flag.
 
 
 ## Contributing
