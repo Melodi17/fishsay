@@ -70,13 +70,6 @@ class Program
 
     static string Shadow(string text)
     {
-        // StringBuilder sb = new();
-        // string[] lines = text.Split('\n');
-        // int maxLength = lines.Max(x => x.Length);
-        // foreach (string line in lines)
-        //     sb.AppendLine(new(' ', maxLength));
-        // return sb.ToString();
-
         StringBuilder sb = new();
         foreach (char c in text)
             sb.Append(c == '\n' ? c : ' ');
@@ -122,7 +115,6 @@ class Program
         int reset = 0;
 
         string result = text;
-        // find "%red%"
         foreach (Match match in Regex.Matches(text, "%(.*?)%"))
         {
             string code = match.Groups[1].Value;

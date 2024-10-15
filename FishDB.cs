@@ -12,7 +12,6 @@ public partial class FishDB
     public static string GetFish()
     {
         return _fish[_rand.Next(_fish.Length)];
-        // return _fish[0];
     }
     
     public static string Say(string fish, string text)
