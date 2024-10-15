@@ -12,5 +12,8 @@
       }
     }
   },
-  "post_install": "echo. & echo Hello, Fish! | fishsay"
+  "post_install": [
+    "echo.",
+    "echo Hello, Fish! | fishsay"
+  ]
 }
