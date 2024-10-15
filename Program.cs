@@ -3,7 +3,6 @@ using System.Text.RegularExpressions;
 
 namespace fishsay;
 
-#pragma warning disable CA1416
 
 class Program
 {
