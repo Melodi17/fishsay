@@ -9,6 +9,9 @@ class Program
     static void Main(string[] args)
     {
         Utils.EnableVTMode();
+        
+        bool disableColor = args.Contains("--no-color");
+        bool disableLive = args.Contains("--no-live");
 
         (int left, int top) = Console.GetCursorPosition();
         string fish = FishDB.GetFish();
@@ -18,36 +21,48 @@ class Program
 
         string GetSbText()
         {
+            if (disableColor)
+                return text.ToString();
+            
             return Color(text.ToString());
         }
 
         DateTime start = DateTime.Now;
         bool fast = false;
 
-        while (ReadLine() is { } s)
+        if (args.Length > 0)
         {
-            text.AppendLine(s);
-
-            if ((DateTime.Now - start).TotalMilliseconds < 500)
-            {
-                Console.Write(Shadow(lastOutput));
-                fast = true;
-                continue;
-            }
-
-            start = DateTime.Now;
-            fast = false;
-
-            Console.SetCursorPosition(left, top);
-            Console.Write(Shadow(lastOutput));
-
-            Console.SetCursorPosition(left, top);
-            string output = FishDB.Say(fish, GetSbText());
-            lastOutput = output;
-            PrintFish(output);
+            text.AppendLine(string.Join(" ", args));
+            fast = true;
         }
+        else
+            while (ReadLine() is { } s)
+            {
+                text.AppendLine(s);
+                
+                if (disableLive)
+                    continue;
 
-        if (fast)
+                if ((DateTime.Now - start).TotalMilliseconds < 500)
+                {
+                    Console.Write(Shadow(lastOutput));
+                    fast = true;
+                    continue;
+                }
+
+                start = DateTime.Now;
+                fast = false;
+
+                Console.SetCursorPosition(left, top);
+                Console.Write(Shadow(lastOutput));
+
+                Console.SetCursorPosition(left, top);
+                string output = FishDB.Say(fish, GetSbText());
+                lastOutput = output;
+                PrintFish(output);
+            }   
+
+        if (fast || disableLive)
         {
             string output = FishDB.Say(fish, GetSbText());
             PrintFish(output);
