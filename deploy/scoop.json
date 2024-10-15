@@ -1,0 +1,14 @@
+﻿{
+  "url": "https://github.com/Melodi17/fishsay/releases/download/v1.0.0/fishsay.exe",
+  "version": "1.0.0",
+  "bin": "fishsay.exe",
+  "homepage": "https://github.com/Melodi17/fishsay",
+  "license": "MIT",
+  "checkver": "github",
+  "autoupdate": {
+    "64bit": {
+      "url": "https://github.com/Melodi17/fishsay/releases/download/$version/fishsay.exe"
+    }
+  },
+  "post_install": "echo Hello, Fish! | fishsay"
+}
