@@ -38,7 +38,6 @@ class Program
 
             if ((DateTime.Now - start).TotalMilliseconds < 500)
             {
-                Console.Write(Shadow(lastOutput));
                 fast = true;
                 continue;
             }
@@ -57,6 +56,10 @@ class Program
 
         if (fast || disableLive)
         {
+            Console.SetCursorPosition(left, top);
+            Console.Write(Shadow(lastOutput));
+            
+            Console.SetCursorPosition(left, top);
             string output = FishDB.Say(fish, GetSbText());
             PrintFish(output);
         }
