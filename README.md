@@ -43,6 +43,11 @@ By trailing (not resetting the color) a color or style, it will be applied to th
 For all supported colors and styles, see the [color formatting](https://github.com/Melodi17/fishsay/blob/master/FISHSAY_FORMATTING.md) page.
 Color formatting can be disabled using the `--no-color` flag.
 
+## Updating
+Thanks to scoop, you can easily update fishsay by running the following command in your terminal.
+```bash
+$ scoop update fishsay
+```
 
 ## Contributing
 This project is open to contributions. If you have any ideas or improvements, feel free to open an issue or a pull request.
