@@ -7,6 +7,19 @@ class Program
 {
     static void Main(string[] args)
     {
+        try
+        {
+            MainLogic(args);
+        }
+        catch
+        {
+            try { Console.WriteLine(FishDB.Say(FishDB.GetFish(), "Something went wrong!")); }
+            catch { /* Do NOTHING */}
+        }
+    }
+
+    private static void MainLogic(string[] args)
+    {
         Utils.EnableVTMode();
 
         bool disableColor = args.Contains("--no-color");
